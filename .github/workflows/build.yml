@@ -36,12 +36,12 @@ jobs:
         env:
           RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |
-          docker build . -t ghcr.io/BuckarooBanzay/minetest-wasm:${RELEASE_VERSION}
-          docker push ghcr.io/BuckarooBanzay/minetest-wasm:${RELEASE_VERSION}
+          docker build . -t ghcr.io/buckaroobanzay/minetest-wasm:${RELEASE_VERSION}
+          docker push ghcr.io/buckaroobanzay/minetest-wasm:${RELEASE_VERSION}
 
       # step for main/latest (docker only)
       - name: Build and push latest docker image
         if: success() && github.ref == 'refs/heads/main'
         run: |
-          docker build . -t ghcr.io/BuckarooBanzay/minetest-wasm:latest
-          docker push ghcr.io/BuckarooBanzay/minetest-wasm:latest
+          docker build . -t ghcr.io/buckaroobanzay/minetest-wasm:latest
+          docker push ghcr.io/buckaroobanzay/minetest-wasm:latest
